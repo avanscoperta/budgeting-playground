@@ -2,6 +2,8 @@ package it.avanscoperta.playground.budgeting.design.domain;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 public class BudgetingModelTest {
 
 
@@ -10,7 +12,7 @@ public class BudgetingModelTest {
 
         OrganizationStructure structure = OrganizationStructure.createSimple();
         BudgetingModel thisYearBudgetingModel = BudgetingModel.emptyFor(structure);
-
+        assertFalse(thisYearBudgetingModel.isComplete());
 
     }
 

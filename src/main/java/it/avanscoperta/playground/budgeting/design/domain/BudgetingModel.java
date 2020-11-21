@@ -9,4 +9,12 @@ public class BudgetingModel {
     public static BudgetingModel emptyFor(OrganizationStructure structure) {
         return new BudgetingModel();
     }
+
+    /**
+     * Temporary, probably a specification is needed.
+     * @return
+     */
+    public boolean isComplete() {
+        return false;
+    }
 }
