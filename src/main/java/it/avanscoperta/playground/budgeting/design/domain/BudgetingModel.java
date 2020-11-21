@@ -11,7 +11,10 @@ public class BudgetingModel {
     }
 
     /**
-     * Temporary, probably a specification is needed.
+     * #TODO: Temporary, probably a specification is needed.
+     *
+     * Returns true if all tasks in the model are properly set up.
+     *
      * @return
      */
     public boolean isComplete() {
