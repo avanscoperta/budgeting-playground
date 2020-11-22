@@ -49,8 +49,17 @@ public class OrganizationStructureTest {
     }
 
     @Test
-    public void can_add_responsibilities() {
-        fail("No implementation yet");
+    public void can_add_responsibilities_to_roles() {
+
+        OrganizationRole role = new OrganizationRole("CEO");
+        OrganizationStructure org = new OrganizationStructureBuilder()
+                .withRole(role)
+                .build();
+
+        Responsibility responsibility = new Responsibility("Budgeting");
+        org.placeResponsibility(responsibility, role);
+
+        assertTrue(org.roleHasResponsibility(role, responsibility));
     }
 
     @Test
