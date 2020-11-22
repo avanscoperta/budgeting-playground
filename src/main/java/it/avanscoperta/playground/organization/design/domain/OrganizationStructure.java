@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class OrganizationStructure {
 
-    private List<OrganizationRole> roles;
+    private List<Role> roles;
     private Set<Responsibility> responsibilities;
     private List<ResponsibilityAssignment> assignedResponsibilities;
 
@@ -30,11 +30,11 @@ public class OrganizationStructure {
         return new OrganizationStructure();
     }
 
-    public void addRole(OrganizationRole role) {
+    public void addRole(Role role) {
         roles.add(role);
     }
 
-    public void addRoles(List<OrganizationRole> roles) {
+    public void addRoles(List<Role> roles) {
         // Brutal, not asking questions
         roles.addAll(roles);
     }
@@ -51,14 +51,14 @@ public class OrganizationStructure {
      * @param responsibility
      * @return
      */
-    public boolean roleHasResponsibility(OrganizationRole role, Responsibility responsibility) {
+    public boolean roleHasResponsibility(Role role, Responsibility responsibility) {
         return assignedResponsibilities.stream()
                 .anyMatch(assignment -> (
                         assignment.getResponsibility().equals(responsibility) &&
                         assignment.getRole().equals(role)));
     }
 
-    public void placeResponsibility(Responsibility responsibility, OrganizationRole role) {
+    public void placeResponsibility(Responsibility responsibility, Role role) {
         rejectOnMissingResponsibility();
         rejectOnMissingRole();
         assignedResponsibilities.add(new ResponsibilityAssignment(

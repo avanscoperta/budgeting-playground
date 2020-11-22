@@ -2,10 +2,10 @@ package it.avanscoperta.playground.organization.design.domain;
 
 public class ResponsibilityAssignment {
     private Responsibility responsibility;
-    private OrganizationRole role;
+    private Role role;
     private String notes;
 
-    public ResponsibilityAssignment(Responsibility responsibility, OrganizationRole role, String notes) {
+    public ResponsibilityAssignment(Responsibility responsibility, Role role, String notes) {
         this.responsibility = responsibility;
         this.role = role;
         this.notes = notes;
@@ -17,7 +17,7 @@ public class ResponsibilityAssignment {
         return responsibility;
     }
 
-    public OrganizationRole getRole() {
+    public Role getRole() {
         return role;
     }
 

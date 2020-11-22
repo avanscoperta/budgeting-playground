@@ -46,7 +46,7 @@ public class OrganizationStructureTest {
         OrganizationStructure smallOrg =
                 OrganizationStructure.createSimple(orgName, members);
 
-        smallOrg.addRole(new OrganizationRole("CEO"));
+        smallOrg.addRole(new Role("CEO"));
 
         assertTrue(smallOrg.hasRole("CEO"));
     }
@@ -54,7 +54,7 @@ public class OrganizationStructureTest {
     @Test
     public void can_add_responsibilities_to_roles() {
 
-        OrganizationRole role = new OrganizationRole("CEO");
+        Role role = new Role("CEO");
         OrganizationStructure org = new OrganizationStructureBuilder()
                 .withRole(role)
                 .build();
@@ -75,7 +75,7 @@ public class OrganizationStructureTest {
      */
     public static class OrganizationStructureBuilder {
         private String orgName = "Test Org Ltd";
-        private List<OrganizationRole> roles = new ArrayList<OrganizationRole>();
+        private List<Role> roles = new ArrayList<Role>();
         private List<OrganizationMember> members = new ArrayList<OrganizationMember>();
 
         /**
@@ -86,7 +86,7 @@ public class OrganizationStructureTest {
          * @return
          */
         public OrganizationStructureBuilder withRole(String roleLabel) {
-            roles.add(new OrganizationRole(roleLabel));
+            roles.add(new Role(roleLabel));
             return this;
         }
 
@@ -98,7 +98,7 @@ public class OrganizationStructureTest {
          * @param role
          * @return an OrganizationStructureBuilder with the given roles added to the roles list.
          */
-        public OrganizationStructureBuilder withRole(OrganizationRole role) {
+        public OrganizationStructureBuilder withRole(Role role) {
             roles.add(role);
             return this;
         }
