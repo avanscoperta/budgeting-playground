@@ -1,5 +1,7 @@
 package it.avanscoperta.playground.budgeting.design.domain;
 
+import it.avanscoperta.playground.organization.design.domain.OrganizationStructure;
+
 public class BudgetingModel {
     /**
      * Returns an empty budgeting model for the given organization structure.

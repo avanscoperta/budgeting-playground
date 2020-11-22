@@ -1,4 +1,4 @@
-package it.avanscoperta.playground.budgeting.design.domain;
+package it.avanscoperta.playground.common;
 
 public class OrganizationMember {
     OrganizationMemberId id;

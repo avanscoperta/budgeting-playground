@@ -1,4 +1,6 @@
-package it.avanscoperta.playground.budgeting.design.domain;
+package it.avanscoperta.playground.organization.design.domain;
+
+import it.avanscoperta.playground.common.OrganizationMember;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package it.avanscoperta.playground.budgeting.design.domain;
+package it.avanscoperta.playground.organization.design.domain;
 
 public class ResponsibilityAssignment {
     private Responsibility responsibility;

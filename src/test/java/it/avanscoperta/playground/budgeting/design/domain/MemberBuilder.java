@@ -1,5 +1,9 @@
 package it.avanscoperta.playground.budgeting.design.domain;
 
+// Depending on Common is fine.
+import it.avanscoperta.playground.common.OrganizationMember;
+import it.avanscoperta.playground.common.OrganizationMemberId;
+
 /**
  * A very simple test data builder.
  * Maybe I'll need something more sophisticated later on.
