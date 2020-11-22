@@ -1,7 +1,7 @@
 package it.avanscoperta.playground.organization.design.domain;
 
 // FIXME: this dependency should go away somehow.
-import it.avanscoperta.playground.budgeting.design.domain.*;
+import it.avanscoperta.playground.common.MemberBuilder;
 import it.avanscoperta.playground.common.OrganizationMember;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
