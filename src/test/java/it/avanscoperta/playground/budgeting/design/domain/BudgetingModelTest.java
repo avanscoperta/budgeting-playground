@@ -2,9 +2,6 @@ package it.avanscoperta.playground.budgeting.design.domain;
 
 import it.avanscoperta.playground.common.OrganizationMember;
 
-// FIXME: this can potentially be an awkward dependency later on.
-import it.avanscoperta.playground.organization.design.domain.OrganizationStructure;
-import it.avanscoperta.playground.organization.design.domain.OrganizationStructureBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -25,6 +22,7 @@ public class BudgetingModelTest {
     }
 
     @Test
+    @DisplayName("Can assign tasks to organization members")
     public void can_add_tasks_to_members() {
         OrganizationStructureReader orgReader = new MockOrganizationStructureReader("Test Org");
         BudgetingModel firstModel = BudgetingModel.emptyFor(orgReader);
@@ -55,12 +53,14 @@ public class BudgetingModelTest {
 
 
     @Test
+    @DisplayName("A Budgeting model created with the factory is born complete.")
     public void simplest_case_of_budgeting_model() {
         OrganizationStructureReader orgReader = new MockOrganizationStructureReader("Test Org");
         BudgetingModel thisYearModel = BudgetingModel.fromStructure(orgReader);
 
         assertTrue(thisYearModel.isComplete());
     }
+
 
 
     private class MockOrganizationStructureReader implements OrganizationStructureReader {

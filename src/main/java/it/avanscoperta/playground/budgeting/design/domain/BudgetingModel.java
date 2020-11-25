@@ -1,12 +1,13 @@
 package it.avanscoperta.playground.budgeting.design.domain;
 
 import it.avanscoperta.playground.common.OrganizationMember;
-import it.avanscoperta.playground.organization.design.domain.OrganizationStructure;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+/**
+ * A budgeting model
+ */
 public class BudgetingModel {
 
     private List<AssignedTask> assignedTasks;
@@ -20,14 +21,14 @@ public class BudgetingModel {
     /**
      * Returns an empty budgeting model for the given organization structure.
      * @param structureReader a reader for the current OrganizationStructure
-     * @return
+     * @return an empty <code>BudgetingModel</code>
      */
-    public static BudgetingModel emptyFor(OrganizationStructureReader structureReader) {
+    static BudgetingModel emptyFor(OrganizationStructureReader structureReader) {
         return new BudgetingModel(structureReader);
     }
 
     /**
-     * factory method to crete a Budgeting Model from a given organization structure
+     * factory method to create a Budgeting Model from a given organization structure
      * @param orgReader
      * @return
      */
@@ -38,7 +39,7 @@ public class BudgetingModel {
         orgReader.peopleWithBudgetingResponsibilities()
                 .stream()
                 .forEach(budgetPerson -> model.assignTask(budgetPerson, TaskTypes.BUDGETING, "from structure"));
-
+        // TODO: assign also budgeting scope.
         return model;
     }
 
@@ -59,9 +60,10 @@ public class BudgetingModel {
     }
 
     private boolean hasBudgetingTaskAssigned(OrganizationMember keyPerson) {
-        return assignedTasks.stream().anyMatch(task ->
-                task.isAssignedTo(keyPerson) &&
-                task.isBudgeting());
+        return assignedTasks.stream().anyMatch(
+                task ->
+                        task.isAssignedTo(keyPerson) &&
+                                task.isBudgeting());
     }
 
     public List<AssignedTask> getAssignedTasks() {

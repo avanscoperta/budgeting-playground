@@ -110,6 +110,7 @@ public class OrganizationStructureTest {
 
 
     @Test
+    @DisplayName("Can add departments to an organization")
     public void can_add_departments() {
 
         Department department = new Department("Stealth Ops");
@@ -124,11 +125,26 @@ public class OrganizationStructureTest {
     }
 
     @Test
+    @DisplayName("An organization with no default departments is not well formed.")
     public void well_formed_organization() {
         OrganizationStructure org = new OrganizationStructureBuilder()
                 .withRole(new Role("CEO"))
                 .build();
 
+        OrganizationSpecification wellFormedOrganization = new WellFormedOrganizationCriteria();
+        assertFalse(wellFormedOrganization.isSatisfiedBy(org));
+    }
+
+    @Test
+    @DisplayName("An organization with default departments passes the corresponding specification.")
+    public void organization_with_default_departments() {
+        OrganizationStructure org = new OrganizationStructureBuilder()
+                .withRole(new Role("CEO"))
+                .withDepartment(new Department("R & D"))
+                .withDepartment(new Department("Delivery"))
+                .withDepartment(new Department("Operations"))
+                .withDepartment(new Department("Sales"))
+                .build();
 
         OrganizationSpecification wellFormedOrganization = new WellFormedOrganizationCriteria();
         assertFalse(wellFormedOrganization.isSatisfiedBy(org));

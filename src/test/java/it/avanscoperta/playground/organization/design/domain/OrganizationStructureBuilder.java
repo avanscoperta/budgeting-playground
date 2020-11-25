@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class OrganizationStructureBuilder {
     private String orgName = "Test Org Ltd";
+    private List<Department> departments = new ArrayList<Department>();
     private List<Role> roles = new ArrayList<Role>();
     private List<OrganizationMember> members = new ArrayList<OrganizationMember>();
 
@@ -35,6 +36,11 @@ public class OrganizationStructureBuilder {
      */
     public OrganizationStructureBuilder withRole(Role role) {
         roles.add(role);
+        return this;
+    }
+
+    public OrganizationStructureBuilder withDepartment(Department department) {
+        departments.add(department);
         return this;
     }
 
