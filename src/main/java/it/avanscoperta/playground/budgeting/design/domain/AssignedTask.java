@@ -17,19 +17,8 @@ public class AssignedTask {
         this.notes = notes;
     }
 
-    /**
-     * Very simple local predicate.
-     *
-     * @return
-     */
-    public boolean isProperlyAssigned() {
-        return (label != null) &&
-                (assignee != null) &&
-                (notes != null);
-    }
-
-    public boolean isAssignedTo(OrganizationMember keyperson) {
-        return assignee.equals(keyperson);
+    public boolean isAssignedTo(OrganizationMember keyPerson) {
+        return assignee.equals(keyPerson);
     }
 
     public boolean isBudgeting() {

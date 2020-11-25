@@ -3,6 +3,9 @@ package it.avanscoperta.playground.budgeting.design.domain;
 import it.avanscoperta.playground.common.OrganizationMember;
 import it.avanscoperta.playground.common.OrganizationMemberId;
 
+/**
+ * A Simple Test Data Builder for an organization member.
+ */
 public class OrganizationMemberTestBuilder {
     private OrganizationMemberId id = OrganizationMemberId.generate();
     private String name = "John";

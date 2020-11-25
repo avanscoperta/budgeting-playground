@@ -18,7 +18,7 @@ public class BudgetingModelTest {
 
     @Test
     @DisplayName("An empty budgeting model is not complete")
-    public void can_create_a_budgeting_model() {
+    public void an_empty_model_is_not_complete() {
         OrganizationStructureReader orgReader = new MockOrganizationStructureReader("Test Org");
         BudgetingModel thisYear = BudgetingModel.emptyFor(orgReader);
         assertFalse(thisYear.isComplete());
@@ -29,12 +29,14 @@ public class BudgetingModelTest {
         OrganizationStructureReader orgReader = new MockOrganizationStructureReader("Test Org");
         BudgetingModel firstModel = BudgetingModel.emptyFor(orgReader);
 
+        OrganizationMember boss = orgReader.peopleWithBudgetingResponsibilities().stream().findFirst().get();
         firstModel.assignTask(
-                orgReader.peopleWithBudgetingResponsibilities().stream().findFirst().get(),
+                boss,
                 TaskTypes.BUDGETING,
                 "Manually assigned (in test)");
 
         assertTrue(firstModel.getAssignedTasks().stream().count() >= 1);
+        assertTrue(firstModel.getAssignedTasks().stream().allMatch(task -> task.isAssignedTo(boss)));
     }
 
     @Test

@@ -16,11 +16,13 @@ import java.util.Set;
 public class OrganizationStructure {
 
     private List<Role> roles;
+    private List<Department> departments;
     private Set<Responsibility> responsibilities;
     private List<ResponsibilityAssignment> assignedResponsibilities;
 
     private OrganizationStructure() {
         roles = new ArrayList<>();
+        departments = new ArrayList<>();
         responsibilities = new HashSet<>();
         assignedResponsibilities = new ArrayList<>();
     }
@@ -42,7 +44,7 @@ public class OrganizationStructure {
 
     public void addRoles(List<Role> roles) {
         // Brutal, not asking questions
-        roles.addAll(roles);
+        this.roles.addAll(roles);
     }
 
     public boolean hasRole(String role) {
@@ -66,15 +68,16 @@ public class OrganizationStructure {
 
     public void placeResponsibility(Responsibility responsibility, Role role) {
         rejectOnMissingResponsibility();
-        rejectOnMissingRole();
+        rejectOnMissingRole(role);
         assignedResponsibilities.add(new ResponsibilityAssignment(
                 responsibility, role, "Forever"
         ));
-
     }
 
-    private void rejectOnMissingRole() {
-        // TODO:
+    private void rejectOnMissingRole(Role role) {
+        if (!roles.contains(role)) {
+            throw new RuntimeException("There is no such role as " + role + " in the organization");
+        }
     }
 
     private void rejectOnMissingResponsibility() {
@@ -82,4 +85,11 @@ public class OrganizationStructure {
     }
 
 
+    public void addDepartment(Department department) {
+        departments.add(department);
+    }
+
+    public boolean hasDepartment(Department department) {
+        return departments.contains(department);
+    }
 }
