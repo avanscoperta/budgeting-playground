@@ -2,10 +2,7 @@ package it.avanscoperta.playground.organization.design.domain;
 
 import it.avanscoperta.playground.common.OrganizationMember;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * An arbitrary implementation  of organization structure.
@@ -91,5 +88,9 @@ public class OrganizationStructure {
 
     public boolean hasDepartment(Department department) {
         return departments.contains(department);
+    }
+
+    public List<Department> departments() {
+        return departments; // probably a copy would be better.
     }
 }

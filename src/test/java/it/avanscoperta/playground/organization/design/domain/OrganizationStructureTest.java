@@ -123,4 +123,16 @@ public class OrganizationStructureTest {
         assertTrue(org.hasDepartment(department));
     }
 
+    @Test
+    public void well_formed_organization() {
+        OrganizationStructure org = new OrganizationStructureBuilder()
+                .withRole(new Role("CEO"))
+                .build();
+
+
+        OrganizationSpecification wellFormedOrganization = new WellFormedOrganizationCriteria();
+        assertFalse(wellFormedOrganization.isSatisfiedBy(org));
+    }
+
+
 }
