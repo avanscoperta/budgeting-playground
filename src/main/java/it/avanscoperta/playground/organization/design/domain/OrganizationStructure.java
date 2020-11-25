@@ -7,6 +7,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * An arbitrary implementation  of organization structure.
+ *
+ * Please don't focus on the internals which are clearly naive. The main point is that
+ * we should ignore this complexity as much as possible even in the services using this.
+ */
 public class OrganizationStructure {
 
     private List<Role> roles;
