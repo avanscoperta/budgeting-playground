@@ -53,7 +53,8 @@ public class OrganizationStructureTest {
     }
 
     @Test
-    public void can_add_a_many_roles_ar_once() {
+    @DisplayName("Can add roles in bulk mode")
+    public void can_add_many_roles_at_once() {
 
         // TODO: this calls for something better and moving
         OrganizationMember member = new MemberBuilder().build();
